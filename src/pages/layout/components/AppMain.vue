@@ -28,5 +28,7 @@
     min-height: calc(100vh - 84px);
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 80px;
   }
   </style>

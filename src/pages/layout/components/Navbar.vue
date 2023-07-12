@@ -264,8 +264,10 @@ export default {
   z-index: 1030;
 }
 .navbar {
-  min-height: 50px;
-  margin-bottom: 20px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  //margin-bottom: 20px;
   border: 1px solid transparent;
 }
 
