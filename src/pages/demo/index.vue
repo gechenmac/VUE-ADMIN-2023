@@ -127,7 +127,7 @@ export default {
 <style>
 .swiper-container {
   background: #f00;
-  height: 100vh;
+  height: 100vh\\;
 }
 .swiper-slide {
   height: 150px;
