@@ -1,9 +1,15 @@
 
 <template>
     <div class="hello">
-      <div class="swiper-container">
+      <div class="swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) in arr" :key="index">
+            <div class="slogan">
+              <h1></h1>
+              <h5></h5>
+              <p></p>
+              <a></a>
+            </div>
             <img :src="item.img_url" alt="">
           </div>
         </div>
@@ -18,28 +24,31 @@
 
 
 <script>
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 import Swiper from "swiper";//引入swiper
 export default {
   name: "HelloWorld",
   data() {
     return {
+      modules: [Navigation, Pagination, Scrollbar, A11y],
       swiper:'',
       index:'',
       arr:[
-        {img_url:require('@/assets/a.png')},
-        {img_url:require('@/assets/b.png')},
-        {img_url:require('@/assets/c.png')},
-        {img_url:require('@/assets/d.png')},
-        {img_url:require('@/assets/e.png')}
+        {img_url:require('@/assets/images/banner/slide-1.jpg')},
+        {img_url:require('@/assets/images/banner/slide-2.jpg')},
+        {img_url:require('@/assets/images/banner/slide-3.jpg')},
+        {img_url:require('@/assets/images/banner/slide-1.png')},
       ]
     };
   },
   mounted() {
-    this.swiper = new Swiper(".swiper-container", {
-      autoplay: {//自动轮播
-        disableOnInteraction: false,//当设置为false时，用户操作之后（swipes,arrow以及pagination 点击）autoplay不会被禁掉，用户操作之后每次都会重新启动autoplay。
-      },
+    this.swiper = new Swiper(".swiper", {
+      /*autoplay: true,*/
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      }, //可选选项，自动滑动
       pagination: {//指示点
         el: '.swiper-pagination',
         clickable :true
@@ -58,12 +67,27 @@ export default {
 
 
 <style scoped>
-.swiper-container {
+.swiper {
   width: 100%;
   height: 100vh;
 }
 .swiper-slide img{
+  position: relative;
+  object-fit: contain;
   width: 100%;
   height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+}
+
+.slogan{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 70px;
 }
 </style>
